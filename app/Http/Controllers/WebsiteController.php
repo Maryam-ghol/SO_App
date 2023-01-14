@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 
 class WebsiteController extends Controller
 {
@@ -32,11 +34,31 @@ class WebsiteController extends Controller
             'password' => $request->password,
             'status' => 'Active'
         ];
-        if(Auth::attempt($credentials)){
-            return redirect()->route('dashboard');
-        }else{
+
+        $query=DB::table('users')
+          ->select('email','password')
+          ->whereRaw('email =\'' . $request->email.'\'')
+          ->whereRaw ('password=\''.$request->password.'\'')->first(); 
+
+
+        if($query){
+            return redirect()->route('dashboard')->with('query',json_encode($query) );
+        }
+        else{
             return redirect()->route('login');
         }
+        print_r($query) ;
+       // $querystr='select email,password from users where email=\''.$request->email.'\'';
+
+      //  $credentialsDB= DB::select($querystr);
+     //   echo (string)$credentialsDB[0];
+
+      // if(1=1){
+     //       return redirect()->route('dashboard');
+      //  }else{
+      //      return redirect()->route('login');
+     //  }
+       
         ;
     }
 
@@ -57,7 +79,7 @@ class WebsiteController extends Controller
         $user= new User();
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = Hash::make($request->password);
+        $user->password = $request->password;
         $user->status = 'Active';
         $user->token =$token;
         $user->save();
