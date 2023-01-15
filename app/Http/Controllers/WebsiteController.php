@@ -35,10 +35,12 @@ class WebsiteController extends Controller
             'status' => 'Active'
         ];
 
-        $query=DB::table('users')
-          ->select('email','password')
-          ->whereRaw('email =\'' . $request->email.'\'')
-          ->whereRaw ('password=\''.$request->password.'\'')->first(); 
+       // $query=DB::table('users')
+       //   ->select('email')
+       //   ->whereRaw('email =\'' . $request->email.'\'')
+       //   ->whereRaw ('password=\''.$request->password.'\'')->get(); 
+
+          $query = DB::select( DB::raw("SELECT email FROM users WHERE email = '$request->email' and password='$request->password'") );
 
 
         if($query){
