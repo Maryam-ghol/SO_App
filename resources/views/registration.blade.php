@@ -1,5 +1,5 @@
 @include('nav')
-
+<center>
 <h1> Registration </h1>
 <form action="{{ route('registration_submit') }}" method="post">
     @csrf
@@ -23,3 +23,4 @@
     <input type="submit" value="Make Registration">
 </div>
 </form>
+</center>
