@@ -1,3 +1,10 @@
+
+<center>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
+
 <a href = "{{ route('home')}}" >Home</a> - 
 
 @if(Auth::guard('web')->user())
@@ -9,3 +16,7 @@
 <a href="{{ route('login')}}">Login</a> - 
 <a href="{{ route('registration')}}">Registration</a> - 
 @endif
+<br/>
+    <br/>
+    <br/>
+</center>
