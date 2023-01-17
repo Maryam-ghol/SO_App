@@ -2,11 +2,12 @@
     <link href="/css/main.css" rel="stylesheet"/>
 </head>
 <center>
-    <br/>
+
+<div>
     <img src="/images/logo.jpg"/>
+</div>
     <br/>
-    <br/>
-    <br/>
+
 
 <a href = "{{ route('home')}}" >Home</a> - 
 <a href="{{ route('login')}}">Login</a> - 
@@ -17,7 +18,6 @@
 
 
 <br/>
-    <br/>
-    <br/>
+    
 </center>
 
