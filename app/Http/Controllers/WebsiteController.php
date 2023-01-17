@@ -85,5 +85,6 @@ class WebsiteController extends Controller
         $user->status = 'Active';
         $user->token =$token;
         $user->save();
+        return redirect()->route('login');  
     }
 }
