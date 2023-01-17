@@ -1,6 +1,9 @@
-
+<head>
+    <link href="/css/main.css" rel="stylesheet"/>
+</head>
 <center>
     <br/>
+    <img src="/images/logo.jpg"/>
     <br/>
     <br/>
     <br/>
