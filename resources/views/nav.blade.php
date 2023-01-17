@@ -1,9 +1,10 @@
-
+<head>
+    <link href="/css/main.css" rel="stylesheet"/>
+</head>
 <center>
     <br/>
     <br/>
-    <br/>
-    <br/>
+  
 
 <a href = "{{ route('home')}}" >Home</a> - 
 

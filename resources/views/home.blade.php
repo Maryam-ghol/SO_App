@@ -1,6 +1,4 @@
-<head>
-    <link href
-</head>
+
 @include('nav')
 <center>
 <h1> Home Page</h1>
