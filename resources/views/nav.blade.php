@@ -2,9 +2,12 @@
     <link href="/css/main.css" rel="stylesheet"/>
 </head>
 <center>
+
+<div>
+    <img src="/images/logo.jpg"/>
+</div>
     <br/>
-    <br/>
-  
+   
 
 <a href = "{{ route('home')}}" >Home</a> - 
 
@@ -18,6 +21,5 @@
 <a href="{{ route('registration')}}">Registration</a> - 
 @endif
 <br/>
-    <br/>
-    <br/>
+    
 </center>
