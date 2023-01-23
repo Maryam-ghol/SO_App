@@ -27,17 +27,30 @@ class WebsiteController extends Controller
 
     public function login_submit(Request $request)
     {
-        $credentials =[
-            'email' => $request->email,
-            'password' => $request->password,
-            'status' => 'Active'
-        ];
-        if(Auth::attempt($credentials)){
-            return redirect()->route('dashboard');
-        }else{
-            return redirect()->route('login');
-        }
-        ;
+  
+        $char = "'";
+	$username = $request->email;
+
+	if(strpos($username, $char) !== false){
+   	 return redirect()->route('fail');
+	} else{
+  	  	
+		$credentials =[
+          	  'email' => $request->email,
+           	 'password' => $request->password,
+           	 'status' => 'Active'
+      	  	];
+       	 	if(Auth::attempt($credentials)){
+       	    	 return redirect()->route('dashboard');
+      	 	}else{
+        	    return redirect()->route('fail');
+      	  	};
+      	 	
+    }}
+
+    public function fail()
+    {
+        return  view('fail');
     }
 
     public function logout()
